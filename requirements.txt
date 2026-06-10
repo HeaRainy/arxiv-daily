@@ -1,0 +1,7 @@
+﻿# arxiv-daily 项目依赖
+
+# HTTP 请求库（PDF下载）
+requests>=2.25.0
+
+# 翻译库（论文摘要翻译）
+deep-translator>=1.1.0

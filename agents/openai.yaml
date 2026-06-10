@@ -1,0 +1,3 @@
+﻿interface:
+  display_name: arXiv Daily
+  short_description: Monitor arXiv papers, translate & push to Feishu daily

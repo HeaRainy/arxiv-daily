@@ -1,0 +1,29 @@
+# arxiv-daily 配置文件
+# 复制为 config.local.yaml 并修改以覆盖默认值
+
+arxiv:
+  keywords:
+    - "portrait generation"
+    - "image-to-image"
+    - "text-to-image"
+  max_results_per_keyword: 50
+  days_back: 1
+  categories: ["cs.CV", "cs.AI", "cs.LG"]
+
+feishu:
+  webhook_url: "https://open.e.hihonor.com/open-apis/bot/v2/hook/f0206831-e6db-4717-a1e1-7828ab37f2f3"  # 飞书机器人 webhook 地址
+  web_url: "10.163.65.48"  # 本机IP地址
+
+translate:
+  api: "free"  # "free" 用 deep-translator, "openai" 用 OpenAI API
+  openai_api_key: ""
+  openai_base_url: "https://api.openai.com/v1"
+  openai_model: "gpt-4o-mini"
+
+local:
+  data_dir: "./data"
+  pdf_dir: "./pdfs"
+  
+
+schedule:
+  cron: "0 8 * * *"  # 每天早上 8 点
