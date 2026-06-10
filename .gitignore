@@ -54,6 +54,3 @@ task_log.txt
 # PDF downloads (可选)
 pdfs/
 *.pdf
-
-# Config files with sensitive data
-scripts/config.yaml
