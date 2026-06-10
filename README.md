@@ -40,7 +40,7 @@ arxiv-daily/
 
 ### 1. 环境准备
 
-`ash
+`bash
 # 安装依赖
 pip install -r requirements.txt
 `
@@ -77,7 +77,7 @@ feishu:
 
 ### 4. 手动运行测试
 
-`ash
+`bash
 # 测试运行（跳过 PDF 下载）
 python scripts/run_daily.py --skip_download
 
@@ -88,33 +88,6 @@ python scripts/run_daily.py
 python viewer/run_viewer.py
 `
 
-### 5. 设置定时任务
-
-**Windows 任务计划程序：**
-
-`powershell
-# 创建每日上午 9 点运行的任务
-$Action = New-ScheduledTaskAction -Execute "D:\Project\arxiv-daily\run_task.bat" -WorkingDirectory "D:\Project\arxiv-daily"
-$Trigger = New-ScheduledTaskTrigger -Daily -At 9am
-Register-ScheduledTask -TaskName "arxiv-daily" -Action $Action -Trigger $Trigger -RunLevel Highest
-`
-
-### 6. 网页查看器
-
-启动本地服务器：
-
-`ash
-python viewer/run_viewer.py
-# 访问 http://localhost:8765
-`
-
-**功能说明：**
-
-- 📅 按抓取日期/发表日期筛选
-- 🔍 关键词搜索
-- ⭐ 收藏功能
-- 🔗 快速跳转到 arXiv 原文
-- 📊 显示论文统计信息
 
 ## 目录说明
 
@@ -126,7 +99,8 @@ python viewer/run_viewer.py
 | 	ranslator.py | 翻译摘要（支持 DeepL/DeepSeek） |
 | eishu_notifier.py | 推送消息到飞书 |
 | excel_manager.py | 管理 CSV 历史记录 |
-| un_daily.py | 主运行脚本 |
+| 
+un_daily.py | 主运行脚本 |
 | pdf_downloader.py | 下载 PDF（可选） |
 
 ### data/
