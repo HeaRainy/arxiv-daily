@@ -15,7 +15,7 @@ from datetime import datetime, timedelta
 from typing import List, Dict, Optional
 
 # 设置代理
-proxy_server = "http://proxy.hk.hihonor.com:8080"  # 硬编码代理
+proxy_server = ""  # 硬编码代理
 if proxy_server:
     proxy_handler = urllib.request.ProxyHandler({'http': proxy_server, 'https': proxy_server})
     opener = urllib.request.build_opener(proxy_handler)
