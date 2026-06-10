@@ -149,7 +149,7 @@ def main():
             sys.executable,
             os.path.join(VIEWER_DIR, "run_viewer.py"),
             "--port", str(args.web_port),
-            "--host", str({args.web_url}),
+            "--host", str(web_url),
         ])
 
     print(f"\n{'='*60}")
