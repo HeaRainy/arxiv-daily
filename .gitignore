@@ -54,3 +54,5 @@ task_log.txt
 # PDF downloads (可选)
 pdfs/
 *.pdf
+
+run_task.bat
