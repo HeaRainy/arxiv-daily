@@ -90,18 +90,7 @@ python scripts/run_daily.py
 python viewer/run_viewer.py
 `
 
-### 5. 设置定时任务
-
-**Windows 任务计划程序：**
-
-`powershell
-# 创建每日上午 9 点运行的任务
- = New-ScheduledTaskAction -Execute "D:\Project\arxiv-daily\run_task.bat" -WorkingDirectory "D:\Project\arxiv-daily"
- = New-ScheduledTaskTrigger -Daily -At 9am
-Register-ScheduledTask -TaskName "arxiv-daily" -Action  -Trigger  -RunLevel Highest
-`
-
-### 6. 网页查看器功能说明
+### 5. 网页查看器功能说明
 
 - 📅 按抓取日期/发表日期筛选
 - 🔍 关键词搜索
