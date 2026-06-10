@@ -14,42 +14,50 @@
 
 ## 项目结构
 
-`
-arxiv-daily/
-├── data/                      # 数据目录
-│   ├── papers.json           # 当天论文数据
-│   ├── papers_translated.json # 翻译后的论文
-│   └── papers_record.csv     # 历史记录
-├── scripts/                   # Python 脚本
-│   ├── arxiv_fetcher.py      # arXiv 检索
-│   ├── config.yaml           # 配置文件
-│   ├── translator.py         # 翻译模块
-│   ├── feishu_notifier.py    # 飞书推送
-│   ├── excel_manager.py      # CSV 管理
-│   └── run_daily.py          # 主运行脚本
-├── viewer/                    # 网页查看器
-│   ├── index.html
-│   ├── app.js
-│   ├── styles.css
-│   └── build_data.py
-├── requirements.txt          # Python 依赖
-└── run_task.bat             # Windows 定时任务脚本
-`
+��  list.txt
+��  README.md
+��  requirements.txt
+��  run_task.bat
+��  
+����agents
+��      openai.yaml
+��      
+����assets
+����data
+����pdfs
+����references
+����scripts
+��      arxiv_fetcher.py
+��      config.yaml
+��      config.yaml.example
+��      excel_manager.py
+��      feishu_notifier.py
+��      pdf_downloader.py
+��      run_daily.py
+��      translator.py
+��      
+����viewer
+        app.js
+        build_data.py
+        favicon.svg
+        index.html
+        run_viewer.py
+        styles.css
+        test.html
 
 ## 快速开始
 
 ### 1. 环境准备
 
-`bash
+''' python
 # 安装依赖
 pip install -r requirements.txt
-`
+'''
 
 ### 2. 配置文件
+编辑 scripts/config.yaml
 
-编辑 scripts/config.yaml：
-
-`yaml
+''' python
 # arXiv 检索配置
 arxiv:
   keywords:
@@ -66,8 +74,7 @@ arxiv:
 feishu:
   webhook_url: "https://open.feishu.cn/open-apis/bot/v2/hook/your-webhook-token"
   web_url: "xxx.xxx.xxx.xxx"  # 本机IP地址
-`
-
+'''
 ### 3. 创建飞书机器人
 
 1. 在飞书群中添加「自定义机器人」
@@ -77,7 +84,7 @@ feishu:
 
 ### 4. 手动运行测试
 
-`bash
+''' python
 # 测试运行（跳过 PDF 下载）
 python scripts/run_daily.py --skip_download
 
@@ -86,7 +93,7 @@ python scripts/run_daily.py
 
 # 仅查看论文
 python viewer/run_viewer.py
-`
+'''
 
 
 ## 目录说明
@@ -95,9 +102,9 @@ python viewer/run_viewer.py
 
 | 文件 | 说明 |
 |------|------|
-| rxiv_fetcher.py | 从 arXiv API 检索论文 |
-| 	ranslator.py | 翻译摘要（支持 DeepL/DeepSeek） |
-| eishu_notifier.py | 推送消息到飞书 |
+| arxiv_fetcher.py | 从 arXiv API 检索论文 |
+| translator.py | 翻译摘要（支持 DeepL/DeepSeek） |
+| feishu_notifier.py | 推送消息到飞书 |
 | excel_manager.py | 管理 CSV 历史记录 |
 | 
 un_daily.py | 主运行脚本 |
