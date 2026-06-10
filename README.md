@@ -47,7 +47,7 @@ pip install -r requirements.txt
 
 ### 2. 配置文件
 
-编辑 config.yaml：
+编辑 scripts/config.yaml：
 
 `yaml
 # arXiv 检索配置
@@ -56,13 +56,11 @@ arxiv:
     - "text-to-image"
     - "image-to-image"
     - "portrait generation"
-    ...
   max_results: 50
   days_back: 1
   categories:
     - "cs.CV"
     - "cs.AI"
-    ...
 
 # 飞书推送配置
 feishu:
@@ -90,7 +88,27 @@ python scripts/run_daily.py
 python viewer/run_viewer.py
 `
 
-### 5. 网页查看器功能说明
+### 5. 设置定时任务
+
+**Windows 任务计划程序：**
+
+`powershell
+# 创建每日上午 9 点运行的任务
+$Action = New-ScheduledTaskAction -Execute "D:\Project\arxiv-daily\run_task.bat" -WorkingDirectory "D:\Project\arxiv-daily"
+$Trigger = New-ScheduledTaskTrigger -Daily -At 9am
+Register-ScheduledTask -TaskName "arxiv-daily" -Action $Action -Trigger $Trigger -RunLevel Highest
+`
+
+### 6. 网页查看器
+
+启动本地服务器：
+
+`ash
+python viewer/run_viewer.py
+# 访问 http://localhost:8765
+`
+
+**功能说明：**
 
 - 📅 按抓取日期/发表日期筛选
 - 🔍 关键词搜索
@@ -104,18 +122,20 @@ python viewer/run_viewer.py
 
 | 文件 | 说明 |
 |------|------|
-| arxiv_fetcher.py     | 从 arXiv API 检索论文 |
-| translator.py        | 翻译摘要（支持 DeepL/DeepSeek） |
-| feishu_notifier.py   | 推送消息到飞书 |
-| excel_manager.py     | 管理 CSV 历史记录 |
-| run_daily.py         | 主运行脚本 |
-| pdf_downloader.py    | 下载 PDF（可选） |
+| rxiv_fetcher.py | 从 arXiv API 检索论文 |
+| 	ranslator.py | 翻译摘要（支持 DeepL/DeepSeek） |
+| eishu_notifier.py | 推送消息到飞书 |
+| excel_manager.py | 管理 CSV 历史记录 |
+| un_daily.py | 主运行脚本 |
+| pdf_downloader.py | 下载 PDF（可选） |
 
 ### data/
 
-- papers.json - 当天抓取的原始数据
-- papers_translated.json - 翻译后的数据
-- papers_record.csv - 累积的历史记录
+| 文件 | 说明 |
+|------|------|
+| papers.json | 当天抓取的原始数据 |
+| papers_translated.json | 翻译后的数据 |
+| papers_record.csv | 累积的历史记录 |
 
 ## 常见问题
 
